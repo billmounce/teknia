@@ -1,0 +1,5 @@
+name = Biblical Training Video Player
+description = Provides a field formatter for the file field type using the video tag with flash fallback.
+package = Media
+core = 7.x
+dependencies[] = file

@@ -1,0 +1,102 @@
+<?php
+
+/**
+ * @file
+ *   Provides code to override forms with the honeypot submit.
+ */
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Does several things to prevent form spam.
+ *   1) Hides the original submit button ($form['actions']['submit']) via css.
+ *   2) Removes the submit and validation handlers from the form.
+ *   3) Creates a new submit button with a higher weight.
+ *   4) Adds the submit and validate handlers to the new form.
+ *   5) Removes the enter key submit handler (via javascript).
+ *
+ *  These steps prevent bots from callding .submit() on the form and the form
+ *  can only be submitted by clicking the button.
+ */
+function honeypot_submit_form_alter(&$form, &$form_state, $form_id) {
+
+  // Only add honeypot_submit to specified forms.
+  if (!in_array($form_id, honeypot_submit_form_ids())) {
+    return;
+  }
+
+  // Make sure the form submit handlers are supported by honeypot_submit.
+  if (empty($form['actions']['submit'])) {
+    watchdog('honeypot_submit', t('Currently honeypot_submit only supports forms with the submit form element of $form[\'actions\'][\'submit\']. Please remove @form_id'), array('@form_id' => $form_id));
+    return;
+  }
+
+  // Add our validation magic sauce handler to the beginning of the array.
+  array_unshift($form['#validate'], 'honeypot_submit_submit_validate');
+
+  // Add the required JS and CSS.
+  $form['#attached']['js'][] = drupal_get_path('module', 'honeypot_submit') . '/honeypot_submit.js';
+  $form['#attached']['css'][] = drupal_get_path('module', 'honeypot_submit') . '/honeypot_submit.css';
+
+  // Place a wrapper around the submit button so we can hide it without using
+  // display:none.
+  $form['actions']['submit']['#prefix'] = '<div class="honeypot-submit-wrapper">';
+  $form['actions']['submit']['#suffix'] = '</div>';
+
+
+
+
+  // Add our new submit button with the form submit handlers.
+  $form['actions']['honeypot_submit'] = array(
+    '#type' => 'submit',
+    '#value' => $form['actions']['submit']['#value'],
+    '#name' => 'honeypot_submit',
+  );
+
+  // Add another button so the first and last submit buttons are fake.
+  $form['actions']['submit_2'] = $form['actions']['submit'];
+  $form['actions']['submit_2']['#name'] = 'submit_2';
+
+  // Build a list of honeypot_submit form ids so javascript is aware of the
+  // forms to apply honeypot_submit to.
+  $dom_ids = honeyport_submit_form_dom_ids($form['#id']);
+  $form['#attached']['js'][] = array('data' => array('honeypot-submit-form' => $dom_ids), 'type' => 'setting');
+}
+
+/**
+ * Validation handler for honeypot_submit form.
+ */
+function honeypot_submit_submit_validate(&$form, &$form_state) {
+
+  // If the form wasn't submitted with our submit button, mark it as spam.
+  if ($form_state['triggering_element']['#id'] != 'edit-honeypot-submit') {
+
+    watchdog('honeypot_submit', t('A spam submission was blocked by honeypot_submit on form @form', array('@form' => $form['#form_id'])));
+
+    form_set_error('actions][submit', t('Your submission was blocked. Make sure you are clicking the "@button" button. Please try again or contact us.', array('@button' => $form['actions']['honeypot_submit']['#value'])));
+  }
+}
+
+/**
+ * Builds an array of form ids that have honeypot_submit enabled on a page.
+ */
+function honeyport_submit_form_dom_ids($form_id) {
+  $var = &drupal_static(__FUNCTION__);
+  if (empty($var)) {
+    $var = array();
+  }
+  $var[$form_id] = $form_id;
+  return $var;
+}
+
+/**
+ * Hook to retrieve which forms should have honeypot_submit enablesd.
+ */
+function honeypot_submit_form_ids() {
+  $form_ids = array();
+
+  // Allow modules do define which forms to protect.
+  drupal_alter('honeypot_submit_form_ids', $form_ids);
+
+  return $form_ids;
+}

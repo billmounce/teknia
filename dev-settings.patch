@@ -1,0 +1,37 @@
+diff --git a/sites/default/settings.php b/sites/default/settings.php
+index bcc292f..fb73874 100644
+--- a/sites/default/settings.php
++++ b/sites/default/settings.php
+@@ -166,18 +166,24 @@ $cookie_domain = 'teknia.com';
+ 
+ 
+ $databases = array (
+-  'default' => 
++  'default' =>
+   array (
+-    'default' => 
++    'default' =>
+     array (
+       'driver' => 'mysql',
+-      'database' => 'teknia7',
+-      'username' => 'teknia',
+-      'password' => 'ecnuom0220',
+-      'host' => 'localhost',
++      'database' => 'teknia',
++      'username' => 'mysql',
++      'password' => 'mysql',
++      'host' => 'vagrant02.blueoi.local',
+       'port' => '',
+       'prefix' => '',
+     ),
+   ),
+ );
+-$drupal_hash_salt = 'omm1n1kiX2QjSMn7PW545YzDRIeuJet_VoMSFQO_wtA';
+\ No newline at end of file
++
++$conf['file_public_path'] = 'sites/default/files';
++$conf['file_private_path'] = 'sites/default/files/private';
++$conf['file_temporary_path'] = '/tmp';
++$conf['cache'] = '0';
++$conf['preprocess_css'] = '0';
++$conf['preprocess_js'] = '0';

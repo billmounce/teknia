@@ -1,0 +1,166 @@
+<?php
+/**
+ * Implements hook_field_formatter_info().
+ */
+function bt_video_player_field_formatter_info() {
+  return array(
+    'bt_video_player' => array(
+      'label' => t('Biblical Training Video Player'),
+      'field types' => array('file', 'link_field'),
+      'settings'  => array(
+        'bt_video_player_width' => '640',
+        'bt_video_player_height' => '360',
+        'bt_video_player_color1' => '000000',
+        'bt_video_player_color2' => 'ffffff',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function bt_video_player_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  // Get the view_mode where our settings are stored.
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $display_type = $display['type'];
+
+  // Initialize the element variable.
+  $element = array();
+  $element['bt_video_player_width'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Width'),
+    '#description' => t('Width in pixels.'),
+    '#default_value' => $settings['bt_video_player_width'],
+    '#element_validate' => array('_bt_video_player_num_validate'),
+  );
+  $element['bt_video_player_height'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Height'),
+    '#description' => t('Height in pixels.'),
+    '#default_value' => $settings['bt_video_player_height'],
+    '#element_validate' => array('_bt_video_player_num_validate'),
+  );
+  $element['bt_video_player_color1'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Player Color'),
+    '#description' => t('6 letter character hex code for flash player.'),
+    '#default_value' => $settings['bt_video_player_color1'],
+    '#element_validate' => array('_bt_video_player_hex_validate'),
+  );
+  $element['bt_video_player_color2'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Controls Color'),
+    '#description' => t('6 letter character hex code for flash player'),
+    '#default_value' => $settings['bt_video_player_color2'],
+    '#element_validate' => array('_bt_video_player_hex_validate'),
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function bt_video_player_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $display_type = $display['type'];
+  
+  $summary = t('Width: @setting' . 'px', array('@setting' => check_plain($settings['bt_video_player_width']))) . '<br />';
+  $summary .= t('Height: @setting' . 'px', array('@setting' => check_plain($settings['bt_video_player_height']))) . '<br />';
+  $summary .= t('Player Color: #' . '@setting', array('@setting' => check_plain($settings['bt_video_player_color1']))) . '<br />';
+  $summary .= t('Controls Color: #' . '@setting', array('@setting' => check_plain($settings['bt_video_player_color2']))) . '<br />';
+  return $summary;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function bt_video_player_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $module_path = drupal_get_path('module', 'bt_video_player');
+  global $base_url;
+  $settings = $display['settings'];
+    
+    // create single player
+    foreach ($items as $delta => $item) {
+      // get file url and label
+      $file = _bt_video_player_get_items_info($item);
+      $variables = array(
+        'url' => $file,
+        'path' => $base_url . '/' . $module_path,
+        'delta' => $delta,
+        'width' => check_plain($settings['bt_video_player_width']),
+        'height' => check_plain($settings['bt_video_player_height']),
+        'color1' => check_plain($settings['bt_video_player_color1']),
+        'color2' => check_plain($settings['bt_video_player_color2']),
+      );
+      // Make sure the file is a mp3.
+      $file_parts = pathinfo($file);
+      if($file_parts['extension'] == 'mp4') {
+        $element[$delta]['#markup'] = theme('bt_video_player_video_tag', $variables);
+      } else {
+        drupal_set_message("Invalid file type. The video player only supports mp4 files.", "warning");
+      }
+    }
+    
+  return $element;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function bt_video_player_theme($existing, $type, $theme, $path) {
+  return array(
+    'bt_video_player_video_tag' => array(
+      'variables' => array(
+        'url' => NULL,
+        'path' => NULL,
+        'delta' => 0,
+        'width' => '640',
+        'height' => '360',
+        'color1' => '000000',
+        'color2' => 'ffffff',
+      ),
+      'template' => 'bt_video_player',
+    ),
+  );
+}
+
+/**
+ * Returns url and label for give item.
+ */
+function _bt_video_player_get_items_info($item) {
+
+    if (!empty($item['uri'])) {
+      $file = file_create_url($item['uri']);
+    } elseif (!empty($item['url'])) {
+      $file = $item['url'];
+    } else {
+      $file = '';
+    }
+
+  return $file;
+}
+
+/**
+ * Check to make sure value is numeric
+ */
+function _bt_video_player_num_validate($element, &$form_state, $form) {
+  if (!is_numeric($element['#value'])) {
+    form_error($element, t('This field must be a number.'));
+  }
+}
+
+/**
+ * Check to make sure value is a color hex
+ */
+function _bt_video_player_hex_validate($element, &$form_state, $form) {
+  if (preg_match('/^[a-f0-9]{6}$/i', $element['#value'])) {
+    // do nothing
+  } else {
+    form_error($element, t('This field must be a 6 character color hex.'));
+  }
+}

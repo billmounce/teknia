@@ -1,0 +1,3 @@
+name = Honeypot Submit
+description = Provides a new submit button and hides the default one.
+core = 7.x

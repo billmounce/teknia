@@ -1,0 +1,3 @@
+name = Teknia User Clean
+description = Provides the ability to clean the registered users.
+core = 7.x

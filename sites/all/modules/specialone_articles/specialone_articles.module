@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Specialone Articles feature.
+ */
+
+include_once 'specialone_articles.features.inc';

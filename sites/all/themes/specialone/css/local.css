@@ -1,0 +1,1326 @@
+/* ---------- DEFAULT ---------- */
+
+a, 
+li a.active {
+  color: #797979;
+}
+
+a:hover, 
+a:focus {
+  text-decoration: underline;
+  color: #CC0000;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: Calibri, Candara, Arial, Helvetica, sans-serif;
+  color: #2980B9;
+}
+
+h1 a, 
+h2 a, 
+h3 a, 
+h4 a, 
+h5 a, 
+h6 a {
+  font-family: Calibri, Candara, Arial, Helvetica, sans-serif;
+  color: #2980B9;
+}
+
+h1, 
+h1 a {
+  color: #F39C22;
+}
+
+/*h1.node-title, 
+h1.node-title a, 
+h1#page-title {
+  font-size: 1.4em;
+  padding-bottom: 10px;
+  color: #5e5e5e !important;
+}*/
+
+h2, 
+h2 a {
+  border-bottom: 1px dotted #797979;
+  margin-top: .5em;
+  padding-top: 1.2em;
+}
+  
+h2.block-title a.book-title {
+    border-bottom: none;
+}
+
+p {
+  margin-bottom: 12px;
+  font-size: 1em;
+  font-family: Verdana, Geneva, 'DejaVu Sans', Arial, Helvetica, sans-serif;
+  color: #424242;
+  line-height: 1.4em;
+}
+
+H1.page-title {
+  padding-bottom: 20px;
+}
+
+body {
+  font-size: 1em;
+  color: #424242;
+  line-height: 1.4em;
+}
+
+.sharethis-wrapper {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+h2.block-title:before {
+  content: "";
+}
+
+p.button a {
+	background: #165d97;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.4;
+	letter-spacing: 1.5px;
+	display: inline-block;
+	text-decoration: none;
+	border: none;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	-webkit-appearance: none;
+}
+
+p.button a:hover {
+	opacity: 0.8;
+	color: #fff;
+}
+
+
+/* ---------- TABLES ---------- */
+
+
+tr {
+  padding-left: 12px;
+  padding-right: 6px;
+  padding-right: 12px;
+  padding-bottom: 9px;
+  font-size: .8em;
+  border-right-style: none;
+  border-left-style: none;
+  border-top: 1px dotted silver;
+}
+
+tr.even {
+  background-color: white;
+}
+
+tr.odd {
+  background-color: #eeeaea;
+}
+
+td {
+  vertical-align: top !important;
+  padding: 12px;
+}
+
+
+/* ---------- LISTS AND BOOKS ---------- */
+
+
+li {
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+ul.links.inline {
+  font-size: 1em;
+  padding-top: 3px;
+}
+
+ul.nav {
+  text-align: left;
+  list-style-type: none;
+  padding-left: 0;
+  padding-top: 3px;
+  margin-left: 0;
+  font-size: 1em;
+}
+
+ul.menu {
+  margin-left: 10px;
+  list-style-position: outside;
+}
+
+ul.menu LI.leaf {
+  list-style-image: none;
+  list-style-type: none;
+}
+
+#block-book-navigation li a {
+  display: inline-block;
+  text-align: left;
+}
+  
+#block-menu-menu-flashworks-mac li, 
+#block-menu-menu-flashworks li {
+  display: block;
+  padding-top: 3px;
+  font-size: 1em;
+}
+
+.book-navigation {
+  display: none;
+}
+
+/* Greek words under title */
+DIV#book-navigation-996.book-navigation {
+display: none;
+}
+
+/* Bottom showing previous and next page of book */
+DIV.page-links.clearfix {
+  margin-top: 25px;
+}
+
+
+/* ---------- GENERAL ---------- */
+
+
+/* Admin menu */
+
+#admin-menu-wrapper li {
+  font-size: 10px !important;
+}
+
+
+/* Removes input type in comments */
+FIELDSET#edit-comment-body-und-0-format {
+  display: none;
+}
+
+
+DIV.span5.blog-image-teaser {
+  display: none;
+}
+
+/*Listing of lectures in a class*/
+.view-id-greek_year_1, 
+.view-id-greek_year_1_2 {
+  padding-top: 20px;
+}
+
+
+/* Pager */
+.item-list .pager li {
+  margin-top: 10px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 10px;
+}
+
+ul.pager {
+   margin-top: 20px;
+}
+
+
+/* ---------- DEFAULT PAGE ---------- */
+
+
+#main-content {
+  padding-bottom: 20px;
+}
+
+#block-system-main {
+    padding-bottom: 0px;
+}
+
+
+/* ---------- HEADER ---------- */
+
+
+/* Header area */
+
+/*header {
+  max-height: 60px;
+  min-height: 60px;
+}*/
+
+#block-user-login {
+  float:right;
+  width: 200px;
+}
+
+
+/* Blue area */
+#header-region .block, 
+.span6 {
+  height: 80px;
+  min-height: 80px;
+  max-height: 80px;
+}  
+
+/* Teknia */
+#block-block-21 {
+  margin-top: 15px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  max-height: 60px;
+}
+
+#block-block-21 h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+/* Login */
+#block-user-login, 
+#block-logintoboggan-logintoboggan-logged-in {
+  margin-top: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 20px !important;
+  min-height: 20px !important;
+}
+
+#header-region a {
+  color: #feffff;
+}
+
+#header-region a:hover {
+  color: #d5d5d5;
+}
+
+/* Breadcrumbs */
+
+#top-content-region {
+  min-height: 40px;
+}
+
+#top-content-left-region, 
+#top-content-right-region {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+
+
+/* ---------- MENU ---------- */
+
+  
+#logo {
+height: 30px;
+}
+
+.navbar .nav > li > a {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.front header {
+  min-height: 30px;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+
+DIV#footer-four-columns {
+  padding-left: 10px;
+  padding-right: 0px;
+  }
+  
+DIV#footer-first-region, 
+DIV#footer-second-region, 
+DIV#footer-third-region, 
+DIV#footer-fourth-region {
+  width: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-right: 20px;
+}
+
+#block-menu-menu-greek, 
+#block-menu-menu-hebrew, 
+#block-menu-menu-tools, 
+#block-menu-menu-connected {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+#block-menu-menu-greek H2.block-title, 
+#block-menu-menu-hebrew H2.block-title, 
+#block-menu-menu-tools H2.block-title, 
+#block-menu-menu-connected H2.block-title {
+  font-size: .9em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#block-menu-menu-greek li, 
+#block-menu-menu-hebrew li, 
+#block-menu-menu-tools li, 
+#block-menu-menu-connected li {
+  display: block;
+  font-size: .8em;
+}
+
+
+/* ---------- HOME PAGE ---------- */
+
+
+#announcement {
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+  padding: 36px 20px 24px;
+	margin-right: 20px;
+  margin-left: 20px;
+}
+
+#announcement h2 {
+padding-top: 0;
+margin-top: 0;
+border-bottom: none;
+}
+
+#announcement tr {
+  border-top-style: none;
+  border-top-color: red;
+}
+
+#announcement p {
+  color: gray;
+  font-size: 1em;
+  text-align: center;
+}
+
+DIV#block-system-main.block.block-system {
+  padding-top: 0px;
+}
+
+
+
+#top-content-region {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+#search-block-form .form-type-textfield {
+  color: #797979;
+  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+#search-block-form {
+  padding-right: 28px;
+}
+
+/* Three main images */
+
+#main-page-ads h2 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding-top:  0px;
+  padding-bottom: 20px;
+  border-bottom-style: none;
+  border-bottom-width: 0;
+}
+
+#main-page-ads h2 a {
+  color: #F39C12;
+}
+
+
+/* Social */
+
+DIV#content-wide1-region.bg-color-orange.text-color-white div.span12 {
+  padding-top: 0px;
+  }
+  
+#content-wide1-region.bg-color-orange.text-color-white {
+  margin-top: 30px;
+  padding-top: 0px;
+  }
+
+#content-wide1-region.bg-color-orange.text-color-white, 
+#block-block-22.block.block-block {
+  padding-top: 20px;
+  padding-bottom: 0px;
+}
+
+#social-networks {
+  padding-top: 10px;
+  padding-bottom: 33px;
+  color: #feffff;
+}
+
+#social-networks A.tooltips.text-color-theme {
+  color: white;
+}
+
+
+/* Three across ad */
+
+
+#content-wide3-region {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: auto;
+}
+
+
+/* ADDS 2 */
+
+#content-wide2-region {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Blog */
+
+DIV#block-views-recent-blog-block {
+  width: 48%;
+  float: left;
+  padding-top: 10px !important;
+}
+
+DIV#block-views-recent-blog-block {
+  font-size: 1em;
+  line-height: 1.1em;
+  padding-top: 2px;
+  margin-bottom: 5px;
+}
+
+DIV#block-views-recent-blog-block A.views-more-link {
+  display: block;
+  margin-top: 20px;
+}
+
+DIV.views-field.views-field-title {
+  font-size: 1em;
+  line-height: 1.1em;
+  margin-bottom: 2px;
+}
+
+
+DIV#block-views-front-page-news-block-1 {
+  width: 48%;
+  float: right;
+  padding-top: 10px !important;
+}
+
+
+/* ---------- CLASS LISTS ---------- */
+
+
+div.view-greek-year-1 td.views-field-title, 
+div.view-greek-year-2 td.views-field-title {
+  width: 20%;
+}
+
+div.view-hebrew-year-1 td.views-field-title {
+  width: 25%;
+}
+
+div.view-greek-year-1 td.views-field-body, 
+div.view-greek-year-2 td.views-field-body, 
+div.view-hebrew-year-1 td.views-field-body-1 {
+  padding-top: 15px;
+}
+
+
+
+/* ---------- AREAS ---------- */
+
+/* Block in the sidebar */
+#sidebar-first-region .block {
+  padding-top: 5px;
+}
+
+DIV#block-menu-menu-flashworks-mac {
+  padding-top: 69px;
+}
+
+#block-custom-search-blocks-1 {
+  padding-top: 22px;
+  padding-bottom: 0px;
+}
+
+
+
+/* ---------- BLOGS ---------- */
+
+
+div.blog-post-teaser div.span7 {
+  width: 95%;
+}
+
+
+/* ---------- GREEK DICTIONARY ---------- */
+
+.content-top {
+	padding: 0 0 20px 25px;
+}
+
+.content-top h2 {
+	margin-top: 0;
+}
+
+.greek-def {
+	font-style: italic;
+}
+
+span.concordanceGreek {
+  font-size: 1.1em;
+}
+
+/* Spacing the lines */
+
+/* Fieldsets */
+#node_lexicon_full_group_lexicon_forms span.fieldset-legend, 
+#node_lexicon_full_group_lexicon_numbers span.fieldset-legend, 
+node_lexicon_full_group_lexicon_statistics span.fieldset-legend {
+	padding-top: 10px;
+}
+
+/* First line in each section */
+div.field-name-field-lexical-dictionary, 
+div.field-name-field-lexicon-strong, 
+div.field-name-field-lexicon-frequency {
+	padding-bottom: 10px;
+}
+
+/* Subsequent lines */
+div.field-name-field-lexicon-transliteration, 
+div.field-name-field-lexicon-transliteration-s, 
+div.field-name-field-lexicon-pparts, 
+div.field-name-field-lexicon-gk, 
+div.field-name-field-lexicon-mbg, 
+div.field-name-field-lexicon-gloss {
+	padding-bottom: 10px;
+	padding-top: 3px;
+}
+
+/* Gray the labels */
+div.node-lexicon DIV.field-label {
+  color: #797979;
+}
+
+/* Greek word */
+div.field-name-field-lexical-dictionary DIV.field-label {
+  padding-top: 1px;
+  padding-right: 5px;
+}
+
+div.field-name-field-lexical-dictionary DIV.field-items {
+  font-size: 1.3em;
+}
+
+/* Translitrations */
+DIV.field.field-name-field-lexicon-transliteration DIV.field-item.even, 
+DIV.field.field-name-field-lexicon-transliteration-s DIV.field-item.even {
+  font-style: italic;
+}
+
+/* Concordance */
+
+DIV.view-concordances td.views-field-field-concordance-reference {
+  width: 100px;
+}
+
+
+/* ---------- STORE ---------- */
+
+
+.main-product-image {
+  display: none;
+}
+
+/* Shopping cart */
+td.image {
+  display: none;
+}
+
+/*Display of catalogue */.
+
+DIV.view.view-store.view-id-store.view-display-id-page .odd {
+  background-color: #feffff;
+}
+
+TD.views-field.views-field-field-display-teaser-image {
+  padding: 30px;
+}
+
+.view-store.view-id-store.view-display-id-page h2  {
+  padding-top: 10px;
+  border-bottom-style: none;
+}
+
+.view-store.view-id-store.view-display-id-page p {
+  font-size: 1.1em;
+  line-height: 1.4em;
+}
+
+/* Move cart to the right */
+FORM#views-form-commerce-cart-form-default {
+  float: right;
+}
+
+/* Header */
+FORM#views-form-commerce-cart-form-default th {
+  padding: 10px 20px 6px;
+}
+
+/* Line items in the cart */
+FORM#views-form-commerce-cart-form-default td {
+  padding: 16px 20px 6px;
+}
+
+/*lower remove button */
+INPUT#edit-edit-delete-0.delete-line-item.btn.btn-primary.form-submit {
+  margin-top: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+/* Order total */
+FORM#views-form-commerce-cart-form-default div.line-item-total {
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+/* Cart Block */
+
+DIV#block-commerce-cart-cart DIV.line-item-summary {
+  margin-top: 20px;
+  font-size: .8em;
+  padding-right: 3px;
+}
+
+DIV#block-commerce-cart-cart SPAN.line-item-quantity-raw {
+  padding-left: 10px;
+}
+
+DIV#block-commerce-cart-cart SPAN.line-item-total-raw {
+  padding-right: 5px;
+}
+
+/* Button */
+
+DIV#block-commerce-cart-cart LI.line-item-summary-view-cart, 
+DIV#block-commerce-cart-cart LI.line-item-summary-checkout {
+  font-size: 1em;
+  border: 1px solid #797979;
+  border-radius:6px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+DIV#block-commerce-cart-cart LI.line-item-summary-view-cart:hover, 
+DIV#block-commerce-cart-cart LI.line-item-summary-checkout:hover {
+  background-color: #B26900;
+  color: #feffff;
+}
+
+DIV#block-commerce-cart-cart LI.line-item-summary-view-cart a:hover, 
+DIV#block-commerce-cart-cart LI.line-item-summary-checkout a:hover {
+  color: #feffff;
+  text-decoration: none;
+}
+
+/* Actual cart */
+
+DIV.field.field-name-commerce-order-total.field-type-commerce-price {
+  margin-top: 20px;
+  display: block;
+  float: right;
+  min-width: 50%;
+}
+
+/* Check out */
+
+FORM#commerce-checkout-form-review table.checkout-review TR.pane-title.odd.odd {
+  display: none;
+}
+
+DIV.view.view-commerce-cart-summary.view-id-commerce_cart_summary {
+  margin-top: 16px;
+}
+
+table.checkout-review {
+  font-size: 16px !important;
+}
+
+table.checkout-review .views-table.cols-4 {
+  max-width: 100% !important;
+}
+
+/* Products */
+
+DIV.field.field-name-commerce-price.field-type-commerce-price {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Shipping */
+
+FIELDSET#edit-commerce-shipping--2.commerce_shipping.form-wrapper {
+  font-size: .8em;
+  margin-bottom: 20px;
+}
+
+/* Coupon */
+
+DIV.view.view-order-coupon-list {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+DIV.view.view-order-coupon-list th {
+  display:  none;
+}
+
+DIV.view.view-order-coupon-list td {
+  padding-top: 12px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: 12px;
+}
+
+DIV.view.view-order-coupon-list li {
+  padding-top: 3px;
+  padding-right: 20px;
+  font-size: 12px;
+  list-style-type: none;
+}
+
+/* Cancel button */
+
+INPUT#edit-cancel.checkout-cancel {
+  font-size: .9em;
+  border: 1px solid #797979;
+  border-radius:6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-top: 3px;
+  margin-left: 10px;
+}
+
+INPUT#edit-cancel.checkout-cancel:hover {
+  background-color: #B26900;
+  color: #feffff;
+}
+
+INPUT#edit-cancel.checkout-cancel a {
+  text-decoration: none;
+}
+
+INPUT#edit-cancel.checkout-cancel a:hover {
+  color: #feffff;
+  text-decoration: none;
+}
+
+/* Continue */
+
+FIELDSET#edit-buttons.checkout-buttons {
+  margin-top: 20px;
+}
+
+/* Review Order */
+
+#edit-checkout-review table.checkout-review tr {
+  font-size: 14px;
+}
+
+table.commerce-price-formatted-components {
+  width: 100% !important;
+}
+
+/* Go backbutton */
+
+INPUT#edit-back.checkout-back {
+  font-size: .9em;
+  border: 1px solid #797979;
+  border-radius:6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-top: 3px;
+  margin-left: 10px;
+}
+
+INPUT#edit-back.checkout-back:hover {
+  background-color: #B26900;
+  color: #feffff;
+}
+
+INPUT#edit-back.checkout-back a {
+  text-decoration: none;
+}
+
+INPUT#edit-back.checkout-back a:hover {
+  color: #feffff;
+  text-decoration: none;
+}
+
+
+/* ---------- LECTURE ---------- */
+
+
+#homework,
+#vocab {
+	border: 1px dotted #d5d5d5;
+	border-right-style: none;
+	border-left-style: none;
+}
+
+/* Audio player */
+.field-name-field-pericope-audio {
+  margin-top: 20px;
+}
+
+/* Audio only label */
+.field-name-field-pericope-audio .field-label {
+  margin-top: 6px;
+}
+
+/*Taxonomy at bottom of lecture page*/.node-pericope div.field-name-og-group-ref  {
+  display: none;
+}
+
+/*#homework td, 
+#vocab td {
+	padding: 10px;
+	vertical-align: top;
+}*/
+
+
+/* ---------- VOCABULARY ----------*/
+
+
+/* Group headings */
+SPAN.fieldset-legend {
+  margin-top: 1em;
+}
+
+/* Font color for label */
+.node-vocabulary .field-label {
+  color: #5e5e5e;
+}
+
+/* Font color for answer */
+.node-vocabulary .field-items {
+  color: #212121;
+}
+
+/* Greek entries */
+/* Items are entries */
+.field-name-field-vocab-vocabform .field-item.even, 
+.field-name-field-vocab-forms .field-item.even, 
+.field-name-field-vocab-root .field-item.even {
+	font: 1.5em tekniagreek;
+}
+
+/* Space out the fields vertically */
+.field-name-field-vocab-say-word, 
+.field-name-field-vocab-frequency, 
+.field-name-field-vocab-gk {
+	padding-top: 25px;
+}
+
+/* Vocabulary form */
+.node-vocabulary .field-name-field-vocab-vocabform .field-label {
+	padding-top: 6px;
+}
+.node-vocabulary .field-name-field-vocab-vocabform .field-items {
+	padding-top: 0px;
+	padding-left: 5px;
+}
+
+/* Definition */
+.node-vocabulary .field-name-body .field-label {
+	padding-top: 23px;
+}
+.node-vocabulary .field-name-body .field-items {
+	padding-top: 22px;
+	padding-left: 5px;
+}
+
+/* Core data */
+.node-vocabulary legend {
+  margin-top: 1em;
+}
+
+/* Erasmian pronunciation */
+.field-name-field-erasmian-js {
+	margin-top: 7px;
+	margin-right: 3px;
+}
+.field-name-field-erasmian-js .field-label{
+	padding-top: 0px;
+	padding-right: 10px;
+}
+
+/* Modern pronunciation */
+.field-name-field-modern-js .field-items {
+	margin-top: 10px;
+	margin-left: 3px;
+}
+.field-name-field-modern-js .field-label {
+	padding-top: 18px;
+	padding-right: 18px;
+}
+
+/* Pricipal Parts */
+.field-name-field-vocab-forms .field-items {
+	padding-top: 22px;
+}
+.field-name-field-vocab-forms .field-label {
+	padding-top: 28px;
+	padding-right: 32px;
+}
+
+/* Root */
+.field-name-field-vocab-root .field-items {
+	padding-top: 18px;
+}
+.field-name-field-vocab-root .field-label {
+	padding-top: 25px;
+	padding-right: 44px;
+}
+
+/* Frequency */
+.field-name-field-vocab-frequency .field-label {
+	padding-right: 2px;
+}
+
+/* GK Number */
+.field-name-field-vocab-gk .field-label {
+	padding-right: 56px;
+}
+.field-name-field-vocab-gk .field-items {
+	padding-left: 5px;
+}
+
+/* See word in biblical context */
+#vocab-context {
+	margin-top:12px;
+}
+
+/* Notes */
+.field-name-field-vocab-notes {
+	padding-top: 20px;
+	margin-bottom: 18px;
+}
+
+.field-name-field-vocab-notes p {
+	line-height: 1.5em;
+	padding-top: .5em;
+	padding-bottom: 5px;
+}
+
+
+/* Mnemonics Group */
+
+.node-vocabulary #comments h3 {
+	margin-bottom: 20px;
+}
+
+/* title of comment */
+.node-vocabulary #comments h4 a {
+	display: none;
+}
+.node-vocabulary #comments h4 {
+	margin-top: 0px;
+}
+
+/* Mnemonics Singing */
+
+.field-name-field-vocab-song-text {
+  padding-top: 0px;
+  }
+
+.field-name-field-vocab-mnemonics {
+	margin-top:0px;
+}
+
+.group-vocab-mnemonics .audiojs-default {
+	margin-top:12px;
+}
+
+
+/* ---------- EXERCISES ---------- */
+
+
+.node-exercise p {
+  font: 24pt/42px TekniaGreek;
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+  padding: 15px 20px 15px 30px;
+  text-align: left;
+}
+
+div#comments p {
+	font: 1em "Open Sans", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+.exerEnglish {
+	font: .8em "Open Sans", "Lucida Grande", Lucida, Verdana, sans-serif;
+	}
+
+div.field-name-field-exercise-answer, 
+div.field-name-field-audio-hint-js DIV.mediaelement-audio {
+  margin-left: 18px;
+}
+
+.field-name-field-exercise-answer p {
+	font: 1.2em "Open Sans", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+FIELDSET#node_exercise_full_group_audio_hint, 
+FIELDSET#node_exercise_full_group_exercise_answer {
+  margin-top: 30px;
+}
+	
+FIELDSET.group-text-hint, 
+FIELDSET.group-audio-hint, 
+FIELDSET.group-exercise-answer {
+  margin-top: 30px;
+}
+	
+/* ---------- GREEK TEXT ---------- */
+
+
+/*.chapterTitle {
+	color: maroon;
+}*/
+
+.greekTransliteration {
+	font-style: italic;
+	color: rgb(204, 102, 0);
+}
+
+.greekUnicode {
+	font: 1.1em/1.2em "Times New Roman", Times, serif;
+	color: rgb(204, 102, 0);
+}
+
+.greekParsing {
+	color: #424242;
+	color: rgb(204, 102, 0);
+}
+
+.textGreek {
+	font: 1.2em tekniagreek;
+}
+
+.textEnglish {
+	font-family: "Open Sans", "Lucida Grande", Lucida, sans-serif;
+	font-size:18px;
+	line-height:1.4;
+	color:#333;
+}
+
+
+/* ---------- HINTS ---------- */
+
+
+.hintEnglish {
+	font: .8em "Open Sans", "Lucida Grande", Lucida, Verdana, sans-serif;
+	}
+	
+.englishHint {
+	font: .8em "Open Sans", "Lucida Grande", Lucida, Verdana, sans-serif;
+	}
+
+
+.englishComment {
+	font: .8em "Open Sans", "Lucida Grande", Lucida, Verdana, sans-serif;
+	}
+
+.greekHint {
+	font: 3em TekniaGreek;
+	}
+	
+.greekVerse {
+	font: 2em TekniaGreek;
+	}
+	
+.showSubject {
+	border: 1px dashed blue;
+	background-color: #CCCCCC;
+	padding: .1em .5em;
+	}
+
+.showVerb { //not used yet
+	border: 1px dashed blue;
+	background-color: #CCCCCC;
+	padding: .1em .5em;
+	}
+
+.showObject {
+	border: 1px dashed red;
+	background-color: #CCCCCC;
+	padding: .1em .5em;
+	}
+
+.greekReduplication {
+	color: blue;
+	}
+
+.greekAugment {
+	color: blue;
+	}
+
+.greekTenseFormative {
+	color: green;
+	}
+
+.greekStemVowel {
+	color: red;
+	}
+
+.greekConnectingVowel {
+	color: red;
+	}
+
+.greekCaseEnding {
+	color: blue;
+	}
+
+.greekPersonalEnding {
+	color: blue;
+	}
+
+.greekMorpheme {
+	color: #976634;
+	}
+
+
+/* ---------- Greek for the Rest of Us ---------- */
+
+/*#vocab {
+  border="0" 
+  cellpadding="10" 
+  cellspacing="10"
+  width: 100%"
+}
+
+#vocab td {
+  padding:15px;
+}*/
+
+#gru-exercises p, 
+#gru-exercises li {
+  margin-top: 1em;
+}
+
+#gru-exercises p.greek-verse {
+  line-height: 1.5em;
+  margin-top: 1em;
+}
+
+
+
+/* ---------- HEBREW VOCABULARY ----------*/
+
+.miles {
+  font-family: SPTiberian, Helvetica, San Serif;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+
+.node-type-hebrew h1.page-title {
+  font-size: 4em;
+}
+
+.node-type-hebrew #block-book-navigation ul.menu li {
+  font-size: 24px;
+  line-height: 1.5em;
+}
+
+.field-name-field-hebrew-pronunciation {
+  margin-top: 18px;
+}
+
+.field-name-field-hebrew-pronunciation .field-label {
+  padding-top: 5px;
+  padding-right: 18px;
+}
+
+.field-name-field-hebrew-pronunciation .mediaelement-audio {
+  margin-top: -3px;
+}
+
+.field-name-field-hebrew-definition {
+  margin-top: 24px;
+}
+
+.field-name-field-hebrew-definition .field-label {
+  padding-right: 50px;
+}
+
+.field-name-field-hebrew-frequency {
+  margin-top: 18px;
+}
+
+.field-name-field-hebrew-frequency .field-label {
+  padding-right: 47px;
+}
+
+
+/* Fonts
+-------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'TekniaGreek';
+    src: local('TekniaGreek'),
+	 url('http://data.teknia.com/tekniagreek.eot'),
+         url('http://data.teknia.com/tekniagreek.eot?#iefix') format('embedded-opentype'),
+         url('http://data.teknia.com/tekniagreek.woff') format('woff'),
+         url('http://data.teknia.com/tekniagreek.ttf') format('truetype'),
+         url('http://data.teknia.com/tekniagreek.svg#tekniagreekregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SPTiberian';
+    src: local('SPTiberian'),
+	 url('http://data.teknia.com/SPTiberian.eot'),
+         url('http://data.teknia.com/SPTiberian.eot?#iefix') format('embedded-opentype'),
+         url('http://data.teknia.com/SPTiberian.woff') format('woff'),
+         url('http://data.teknia.com/SPTiberian.ttf') format('truetype'),
+         url('http://data.teknia.com/SPTiberian.svg#sptiberianregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,greek);
+
+//@import url(http://fonts.googleapis.com/css?family=Droid+Serif&subset=greek);
+
+//@import url(http://fonts.googleapis.com/css?family=Shanti&subset=greek);
+
+//@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:700);
+
+//@import url(http://fonts.googleapis.com/css?family=Amaranth);ann

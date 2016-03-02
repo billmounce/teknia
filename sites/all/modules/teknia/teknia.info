@@ -1,0 +1,3 @@
+name = Teknia
+description = Provides custom code for teknia.com
+core = 7.x

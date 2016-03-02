@@ -1,0 +1,167 @@
+<?php
+
+/**
+ * @file: Provides the ability to clean user registrations.
+ */
+
+function teknia_user_clean_menu() {
+  $items = array();
+  $items['admin/people/clean'] = array(
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('teknia_user_clean_by_value'),
+    'access arguments' => array('administer users'),
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
+
+function teknia_user_clean_by_value($form, $form_state = array()) {
+  $form = array();
+  $form['values'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Emails or User Ids'),
+    '#description' => t('Paste emails or user ids one per line.'),
+    '#required' => TRUE,
+  );
+  $form['type'] = array(
+    '#type' => 'select',
+    '#title' => t('Type'),
+    '#description' => t('Select the type of list that you are providing'),
+    '#options' => array('email' => t('Emails'), 'uid' => t('User Ids')),
+    '#default' => 'email',
+  );
+  $form['action'] = array(
+    '#type' => 'select',
+    '#title' => t('Action'),
+    '#description' => t('Select the option to take on the user accounts'),
+    '#options' => array(
+      'delete' => t('Delete'),
+      'block' => t('Block'),
+      'unblock' => t('Unblock'),
+      'unsubscribe' => t('Unsubscribe')
+    ),
+    '#default_value' => 'block',
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+  return $form;
+}
+
+function teknia_user_clean_by_value_validate($form, &$form_state) {
+  if ($form_state['values']['type'] == 'uid' && $form_state['values']['action'] == 'unsubscribe') {
+    form_set_error('type', 'You can only unsubscribe using email addresses');
+  }
+}
+
+function teknia_user_clean_by_value_submit($form, &$form_state){
+  $values = explode(chr(13), trim($form_state['values']['values']));
+  $type = $form_state['values']['type'];
+  $action = $form_state['values']['action'];
+  $count = count($values);
+
+  $batch = array(
+    'finished' => 'teknia_user_clean_by_value_finished',
+    'title' => t('Blocking users by @type', array('@type' => $type)),
+    'init_message' => t('Batch is starting.'),
+    'progress_message' => t('Processing @current out of @total.'),
+    'error_message' => t('Batch cannot complete.'),
+  );
+
+  foreach ($values as $value) {
+    $batch['operations'][] = array('teknia_user_clean_batch', array($value, $type, $action, $count));
+  }
+
+  batch_set($batch);
+}
+
+function teknia_user_clean_batch($value, $type, $action, $count) {
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['current_user'] = 0;
+    $context['sandbox']['max'] = $count;
+  }
+
+  if ($type == 'email') {
+    $uid = db_query('SELECT uid FROM {users} WHERE mail = :mail', array(':mail' => $value))->fetchField(0);
+  }
+  else{
+    $uid = $value;
+  }
+
+  $commerce_orders = db_query("SELECT uid FROM {commerce_order} WHERE uid = :uid", array(':uid' => $value))->fetchAll();
+  $ubercart_orders = db_query("SELECT uid FROM {uc_orders} WHERE uid = :uid", array(':uid' => $value))->fetchAll();
+
+  $status = array();
+
+  if (!empty($uid) && $action != 'unsubscribe') {
+    $user = user_load($uid);
+    $context['sandbox']['current_user'] = $uid;
+    $context['message'] = t('Now processing %user', array('%user' => $user->name));
+    if (!empty($user)) {
+      switch ($action) {
+        case('block'):
+        if (empty($commerce_orders) && empty($ubercart_orders)) {
+          $user->status = 0;
+          user_save($user, array('status' => 0));
+          $status['action'] = 'blocked';
+          $status['status'] = 'success';
+        }
+        else{
+          $status['status'] = 'User has orders';
+          $status['action'] = 'skipped';
+        }
+        break;
+        case('delete'):
+        if (empty($commerce_orders) && empty($ubercart_orders)) {
+          user_delete(array(), $user->uid);
+          $status['action'] = 'deleted';
+          $status['status'] = 'success';
+        }
+        else{
+          $status['status'] = 'User has orders';
+          $status['action'] = 'skipped';
+        }
+        break;
+        case('unblock'):
+        $user->status = 1;
+        user_save($user, array('status' => 1));
+        $status['action'] = 'unblocked';
+        $status['status'] = 'success';
+        break;
+      }
+    }
+  }
+  elseif ($action != 'unsubscribe') {
+    $status['action'] = 'skipped';
+    $status['status'] = 'no such user';
+  }
+  else{
+    $result = db_query("UPDATE {simplenews_subscriber} SET activated = 0 WHERE mail = :mail", array(':mail' => $value));
+    $status['action'] = 'unsubscribed';
+    $status['status'] = 'success';
+  }
+
+  watchdog('teknia_user_clean', 'User @user (@uid) @action with status: @status', array(
+    '@user' => !empty($user->name) ? $user->name : $value,
+    '@uid' => $user->uid,
+    '@action' => $status['action'],
+    '@status' => $status['status'],
+  ));
+
+  $context['sandbox']['progress']++;
+
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+function teknia_user_clean_by_value_finished($success, $results, $operations) {
+  if ($success) {
+    drupal_set_message('batch complete');
+  }
+  else{
+    drupal_set_message('batch could not complete');
+  }
+}
